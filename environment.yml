@@ -6,5 +6,12 @@ channels:
 dependencies:
   - python=3.12
   - pip
+  - pandas
+  - numpy
+  - scipy
+  - matplotlib
+  - statsmodels
+  - yfinance
+  - ipykernel
   - pip:
       - -r requirements.txt
