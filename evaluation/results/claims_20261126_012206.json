@@ -1,0 +1,76 @@
+{
+  "source": "benchmark_20261126_012206.json",
+  "cases": [
+    {
+      "id": "T01",
+      "verified": 1,
+      "unsupported": 0,
+      "unavailable": 0
+    },
+    {
+      "id": "T02",
+      "verified": 1,
+      "unsupported": 0,
+      "unavailable": 0
+    },
+    {
+      "id": "T03",
+      "verified": 1,
+      "unsupported": 0,
+      "unavailable": 0
+    },
+    {
+      "id": "T04",
+      "verified": 10,
+      "unsupported": 0,
+      "unavailable": 0
+    },
+    {
+      "id": "T05",
+      "verified": 10,
+      "unsupported": 0,
+      "unavailable": 0
+    },
+    {
+      "id": "T06",
+      "verified": 10,
+      "unsupported": 0,
+      "unavailable": 0
+    },
+    {
+      "id": "T07",
+      "verified": 20,
+      "unsupported": 0,
+      "unavailable": 0
+    },
+    {
+      "id": "T08",
+      "verified": 0,
+      "unsupported": 0,
+      "unavailable": 0
+    },
+    {
+      "id": "T09",
+      "verified": 0,
+      "unsupported": 0,
+      "unavailable": 0
+    },
+    {
+      "id": "T10",
+      "verified": 0,
+      "unsupported": 0,
+      "unavailable": 0
+    }
+  ],
+  "summary": {
+    "verified": 53,
+    "unsupported": 0,
+    "unavailable": 0,
+    "structured_rows": 53,
+    "verified_fraction_of_all_rows": 1.0,
+    "validation_coverage": 1.0,
+    "unsupported_fraction_of_checked": 0.0,
+    "tool_execution_success": 8,
+    "tool_attempts": 8
+  }
+}

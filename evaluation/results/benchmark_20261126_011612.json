@@ -1,0 +1,1228 @@
+{
+    "timestamp": "20261126_011612",
+    "model": "qwen3:8b",
+    "context_window": 4096,
+    "temperature": 0.0,
+    "method": {
+        "dataset": "phase3-original-10",
+        "repetitions": 1,
+        "stream": false,
+        "cache": "empty at suite start; shared across cases",
+        "model_start": "uncontrolled",
+        "hardware": "Apple M3, 16 GB",
+        "thinking": false
+    },
+    "summary": {
+        "total_tests": 10,
+        "passed_tests": 10,
+        "pass_rate": 1.0,
+        "tool_selection_accuracy": 1.0,
+        "argument_accuracy": 1.0,
+        "average_latency": 24.21383209579799,
+        "median_latency": 26.917030416501802,
+        "p95_latency": 38.9176729350569,
+        "average_llm_calls": 1.7,
+        "total_input_tokens": 13796,
+        "total_output_tokens": 3365,
+        "total_benchmark_time": 242.1383209579799
+    },
+    "results": [
+        {
+            "id": "T01",
+            "category": "price_lookup",
+            "prompt": "What is the latest stock price of Apple?",
+            "expected_calls": [
+                {
+                    "tool": "get_latest_price",
+                    "arguments": {
+                        "symbol": "AAPL"
+                    }
+                }
+            ],
+            "actual_calls": [
+                {
+                    "tool": "get_latest_price",
+                    "arguments": {
+                        "symbol": "AAPL"
+                    },
+                    "success": true,
+                    "execution_time": 0.6660205840016715
+                }
+            ],
+            "answer": "AAPL · 2026-11-24 · Yahoo Finance via yfinance\nUnadjusted daily close: 354.07 USD",
+            "error": null,
+            "tool_selection_correct": true,
+            "arguments_correct": true,
+            "argument_accuracy": 1.0,
+            "execution_success": true,
+            "passed": true,
+            "observations": [
+                {
+                    "success": true,
+                    "tool": "get_latest_price",
+                    "arguments": {
+                        "symbol": "AAPL"
+                    },
+                    "recovery": {
+                        "retries": 0,
+                        "retry_delay": 0.0,
+                        "cache_lookup_seconds": 1.2167001841589808e-05
+                    },
+                    "data": {
+                        "symbol": "AAPL",
+                        "price": 354.07000732421875,
+                        "currency": "USD",
+                        "date": "2026-11-24",
+                        "price_type": "latest_available_daily_close",
+                        "data_source": "Yahoo Finance via yfinance"
+                    }
+                }
+            ],
+            "profile": {
+                "llm_calls": 2,
+                "tool_calls": 1,
+                "tool_rounds": 1,
+                "input_tokens": 1522,
+                "output_tokens": 66,
+                "load_time": 0.00646625,
+                "prompt_time": 0.861943,
+                "generation_time": 4.117532000000001,
+                "tokens_per_second": 16.02901932516857,
+                "tpot": 0.062386848484848496,
+                "llm_latency": 5.02445166601683,
+                "tool_execution_time": 0.6660360829846468,
+                "total_latency": 5.692009541991865,
+                "history_messages": 5,
+                "request_id": "c35856ee-9803-4cd1-b747-408d92a26be2",
+                "status": "completed",
+                "state_transitions": 4,
+                "estimated_context_tokens_saved": 1,
+                "peak_estimated_context_tokens": 1212,
+                "validation_seconds": 8.495798101648688e-05,
+                "ttft": null,
+                "context_preparation_seconds": 0.0008661239990033209,
+                "context_estimation_errors": [
+                    363,
+                    413
+                ],
+                "context_input_budget": 2816
+            },
+            "cache": {
+                "hits": 0,
+                "misses": 1,
+                "shared_calls": 0,
+                "hit_ratio": 0.0
+            },
+            "recoveries": [
+                {
+                    "retries": 0,
+                    "retry_delay": 0.0,
+                    "cache_lookup_seconds": 1.2167001841589808e-05
+                }
+            ],
+            "latency": 5.692129833973013,
+            "llm_calls": 2,
+            "tool_calls": 1,
+            "input_tokens": 1522,
+            "output_tokens": 66,
+            "llm_latency": 5.02445166601683,
+            "tool_execution_time": 0.6660360829846468
+        },
+        {
+            "id": "T02",
+            "category": "price_lookup",
+            "prompt": "엔비디아의 최신 주가를 알려줘.",
+            "expected_calls": [
+                {
+                    "tool": "get_latest_price",
+                    "arguments": {
+                        "symbol": "NVDA"
+                    }
+                }
+            ],
+            "actual_calls": [
+                {
+                    "tool": "get_latest_price",
+                    "arguments": {
+                        "symbol": "NVDA"
+                    },
+                    "success": true,
+                    "execution_time": 0.156651041994337
+                }
+            ],
+            "answer": "NVDA · 2026-11-24 · Yahoo Finance via yfinance\nUnadjusted daily close: 155.38 USD",
+            "error": null,
+            "tool_selection_correct": true,
+            "arguments_correct": true,
+            "argument_accuracy": 1.0,
+            "execution_success": true,
+            "passed": true,
+            "observations": [
+                {
+                    "success": true,
+                    "tool": "get_latest_price",
+                    "arguments": {
+                        "symbol": "NVDA"
+                    },
+                    "recovery": {
+                        "retries": 0,
+                        "retry_delay": 0.0,
+                        "cache_lookup_seconds": 7.458991603925824e-06
+                    },
+                    "data": {
+                        "symbol": "NVDA",
+                        "price": 155.3800048828125,
+                        "currency": "USD",
+                        "date": "2026-11-24",
+                        "price_type": "latest_available_daily_close",
+                        "data_source": "Yahoo Finance via yfinance"
+                    }
+                }
+            ],
+            "profile": {
+                "llm_calls": 2,
+                "tool_calls": 1,
+                "tool_rounds": 1,
+                "input_tokens": 1530,
+                "output_tokens": 134,
+                "load_time": 0.002733167,
+                "prompt_time": 0.7778229999999999,
+                "generation_time": 8.578757,
+                "tokens_per_second": 15.619978512038516,
+                "tpot": 0.06402057462686567,
+                "llm_latency": 9.380009041982703,
+                "tool_execution_time": 0.15666470798896626,
+                "total_latency": 9.539280083001358,
+                "history_messages": 5,
+                "request_id": "37de20bd-7212-4251-ae53-f695b537ab18",
+                "status": "completed",
+                "state_transitions": 4,
+                "estimated_context_tokens_saved": 1,
+                "peak_estimated_context_tokens": 1226,
+                "validation_seconds": 7.116698543541133e-05,
+                "ttft": null,
+                "context_preparation_seconds": 0.0019774170068558306,
+                "context_estimation_errors": [
+                    373,
+                    423
+                ],
+                "context_input_budget": 2816
+            },
+            "cache": {
+                "hits": 0,
+                "misses": 2,
+                "shared_calls": 0,
+                "hit_ratio": 0.0
+            },
+            "recoveries": [
+                {
+                    "retries": 0,
+                    "retry_delay": 0.0,
+                    "cache_lookup_seconds": 7.458991603925824e-06
+                }
+            ],
+            "latency": 9.539354332984658,
+            "llm_calls": 2,
+            "tool_calls": 1,
+            "input_tokens": 1530,
+            "output_tokens": 134,
+            "llm_latency": 9.380009041982703,
+            "tool_execution_time": 0.15666470798896626
+        },
+        {
+            "id": "T03",
+            "category": "price_lookup",
+            "prompt": "삼성전자의 최신 주가를 알려줘.",
+            "expected_calls": [
+                {
+                    "tool": "get_latest_price",
+                    "arguments": {
+                        "symbol": "005930.KS"
+                    }
+                }
+            ],
+            "actual_calls": [
+                {
+                    "tool": "get_latest_price",
+                    "arguments": {
+                        "symbol": "005930.KS"
+                    },
+                    "success": true,
+                    "execution_time": 0.18247379100648686
+                }
+            ],
+            "answer": "005930.KS · 2026-11-26 · Yahoo Finance via yfinance\nUnadjusted daily close: 175200 KRW",
+            "error": null,
+            "tool_selection_correct": true,
+            "arguments_correct": true,
+            "argument_accuracy": 1.0,
+            "execution_success": true,
+            "passed": true,
+            "observations": [
+                {
+                    "success": true,
+                    "tool": "get_latest_price",
+                    "arguments": {
+                        "symbol": "005930.KS"
+                    },
+                    "recovery": {
+                        "retries": 0,
+                        "retry_delay": 0.0,
+                        "cache_lookup_seconds": 8.792005246505141e-06
+                    },
+                    "data": {
+                        "symbol": "005930.KS",
+                        "price": 175200.0,
+                        "currency": "KRW",
+                        "date": "2026-11-26",
+                        "price_type": "latest_available_daily_close",
+                        "data_source": "Yahoo Finance via yfinance"
+                    }
+                }
+            ],
+            "profile": {
+                "llm_calls": 2,
+                "tool_calls": 1,
+                "tool_rounds": 1,
+                "input_tokens": 1541,
+                "output_tokens": 76,
+                "load_time": 0.010936166,
+                "prompt_time": 0.78817,
+                "generation_time": 4.696895,
+                "tokens_per_second": 16.18090248983637,
+                "tpot": 0.061801249999999995,
+                "llm_latency": 5.524683791998541,
+                "tool_execution_time": 0.18258225001045503,
+                "total_latency": 5.709731707989704,
+                "history_messages": 5,
+                "request_id": "1cb0011c-06d9-4c85-97f2-85133963d6c7",
+                "status": "completed",
+                "state_transitions": 4,
+                "estimated_context_tokens_saved": 1,
+                "peak_estimated_context_tokens": 1230,
+                "validation_seconds": 5.85830130148679e-05,
+                "ttft": null,
+                "context_preparation_seconds": 0.0019452910055406392,
+                "context_estimation_errors": [
+                    374,
+                    415
+                ],
+                "context_input_budget": 2816
+            },
+            "cache": {
+                "hits": 0,
+                "misses": 3,
+                "shared_calls": 0,
+                "hit_ratio": 0.0
+            },
+            "recoveries": [
+                {
+                    "retries": 0,
+                    "retry_delay": 0.0,
+                    "cache_lookup_seconds": 8.792005246505141e-06
+                }
+            ],
+            "latency": 5.709799582982669,
+            "llm_calls": 2,
+            "tool_calls": 1,
+            "input_tokens": 1541,
+            "output_tokens": 76,
+            "llm_latency": 5.524683791998541,
+            "tool_execution_time": 0.18258225001045503
+        },
+        {
+            "id": "T04",
+            "category": "financial_analysis",
+            "prompt": "애플의 최근 1년간 Sharpe Ratio를 계산해 줘.",
+            "expected_calls": [
+                {
+                    "tool": "analyze_stock",
+                    "arguments": {
+                        "symbol": "AAPL",
+                        "period": "1y"
+                    }
+                }
+            ],
+            "actual_calls": [
+                {
+                    "tool": "analyze_stock",
+                    "arguments": {
+                        "confidence_level": 0.95,
+                        "symbol": "AAPL",
+                        "period": "1y",
+                        "risk_free_rate": 0.04
+                    },
+                    "success": true,
+                    "execution_time": 0.248104208993027
+                }
+            ],
+            "answer": "AAPL · 2026-11-24 · Yahoo Finance via yfinance\nAdjusted daily close: 354.07 (currency unavailable)\nPeriod 1y · risk-free 4.00% · confidence 95% · 252 trading days/year\nannualized_mean_return: 28.14%\nannualized_volatility: 25.05%\ncagr: 28.21%\ndaily_expected_shortfall: 3.47%\ndaily_var: 2.02%\nmaximum_drawdown: -13.80%\nrsi_14: 56.86\nsharpe_ratio: 0.97\ntotal_return: 28.01%",
+            "error": null,
+            "tool_selection_correct": true,
+            "arguments_correct": true,
+            "argument_accuracy": 1.0,
+            "execution_success": true,
+            "passed": true,
+            "observations": [
+                {
+                    "success": true,
+                    "tool": "analyze_stock",
+                    "arguments": {
+                        "symbol": "AAPL",
+                        "period": "1y",
+                        "risk_free_rate": 0.04,
+                        "confidence_level": 0.95
+                    },
+                    "recovery": {
+                        "retries": 0,
+                        "retry_delay": 0.0,
+                        "cache_lookup_seconds": 1.3999990187585354e-05
+                    },
+                    "data": {
+                        "symbol": "AAPL",
+                        "data_source": "Yahoo Finance via yfinance",
+                        "generated_at": "2026-11-26T01:12:35.449126+00:00",
+                        "data": {
+                            "requested_period": "1y",
+                            "interval": "1d",
+                            "price_type": "adjusted",
+                            "start_date": "2025-11-26",
+                            "end_date": "2026-11-24",
+                            "observations": 250,
+                            "removed_observations": 1
+                        },
+                        "price": {
+                            "latest_close": 354.07000732421875,
+                            "latest_volume": 41270400.0
+                        },
+                        "technical_indicators": {
+                            "sma_20": 347.9398025512695,
+                            "sma_50": 342.3697332763672,
+                            "sma_200": 303.54611770629884,
+                            "ema_12": 349.7475233472782,
+                            "ema_26": 346.9778284107813,
+                            "ema_20": 348.2660856262806,
+                            "rsi_14": 56.85560780455351,
+                            "macd": 2.7696949364969328,
+                            "macd_signal": 3.1886438358314653,
+                            "macd_histogram": -0.4189488993345325,
+                            "bollinger_middle": 347.9398025512695,
+                            "bollinger_upper": 360.22894123357975,
+                            "bollinger_lower": 335.65066386895927
+                        },
+                        "risk_and_performance": {
+                            "total_return": 0.2801425282927643,
+                            "annualized_mean_return": 0.28141486780911956,
+                            "cagr": 0.2821036898681948,
+                            "annualized_volatility": 0.2504749347454701,
+                            "sharpe_ratio": 0.966927499679093,
+                            "maximum_drawdown": -0.13798531392782076,
+                            "daily_var": 0.02016877488251109,
+                            "daily_expected_shortfall": 0.03474187350010809
+                        },
+                        "assumptions": {
+                            "trading_days_per_year": 252,
+                            "annual_risk_free_rate": 0.04,
+                            "confidence_level": 0.95,
+                            "return_unit": "decimal",
+                            "var_method": "historical"
+                        },
+                        "warnings": [
+                            "Market data may be delayed or incomplete.",
+                            "The latest daily bar may be incomplete.",
+                            "Past performance does not guarantee future results.",
+                            "Risk-free rate is an assumed constant.",
+                            "Indicators may be unavailable for short periods."
+                        ]
+                    }
+                }
+            ],
+            "profile": {
+                "llm_calls": 2,
+                "tool_calls": 1,
+                "tool_rounds": 1,
+                "input_tokens": 1701,
+                "output_tokens": 344,
+                "load_time": 0.00221225,
+                "prompt_time": 1.817624,
+                "generation_time": 23.718512999999998,
+                "tokens_per_second": 14.503438727377219,
+                "tpot": 0.06894916569767441,
+                "llm_latency": 25.565646708011627,
+                "tool_execution_time": 0.24811275000683963,
+                "total_latency": 25.816142916009994,
+                "history_messages": 5,
+                "request_id": "fe0477cd-723d-4c22-a409-4047c2e09422",
+                "status": "completed",
+                "state_transitions": 4,
+                "estimated_context_tokens_saved": 1,
+                "peak_estimated_context_tokens": 1357,
+                "validation_seconds": 9.937499999068677e-05,
+                "ttft": null,
+                "context_preparation_seconds": 0.0018501240119803697,
+                "context_estimation_errors": [
+                    369,
+                    390
+                ],
+                "context_input_budget": 2816
+            },
+            "cache": {
+                "hits": 0,
+                "misses": 4,
+                "shared_calls": 0,
+                "hit_ratio": 0.0
+            },
+            "recoveries": [
+                {
+                    "retries": 0,
+                    "retry_delay": 0.0,
+                    "cache_lookup_seconds": 1.3999990187585354e-05
+                }
+            ],
+            "latency": 25.81620450000628,
+            "llm_calls": 2,
+            "tool_calls": 1,
+            "input_tokens": 1701,
+            "output_tokens": 344,
+            "llm_latency": 25.565646708011627,
+            "tool_execution_time": 0.24811275000683963
+        },
+        {
+            "id": "T05",
+            "category": "financial_analysis",
+            "prompt": "Analyze Microsoft's volatility over the past 2 years.",
+            "expected_calls": [
+                {
+                    "tool": "analyze_stock",
+                    "arguments": {
+                        "symbol": "MSFT",
+                        "period": "2y"
+                    }
+                }
+            ],
+            "actual_calls": [
+                {
+                    "tool": "analyze_stock",
+                    "arguments": {
+                        "symbol": "MSFT",
+                        "period": "2y",
+                        "risk_free_rate": 0.04,
+                        "confidence_level": 0.95
+                    },
+                    "success": true,
+                    "execution_time": 0.232729167008074
+                }
+            ],
+            "answer": "MSFT · 2026-11-24 · Yahoo Finance via yfinance\nAdjusted daily close: 496.13 (currency unavailable)\nPeriod 2y · risk-free 4.00% · confidence 95% · 252 trading days/year\nannualized_mean_return: 12.57%\nannualized_volatility: 29.62%\ncagr: 8.54%\ndaily_expected_shortfall: 3.74%\ndaily_var: 2.66%\nmaximum_drawdown: -34.50%\nrsi_14: 41.26\nsharpe_ratio: 0.29\ntotal_return: 17.74%",
+            "error": null,
+            "tool_selection_correct": true,
+            "arguments_correct": true,
+            "argument_accuracy": 1.0,
+            "execution_success": true,
+            "passed": true,
+            "observations": [
+                {
+                    "success": true,
+                    "tool": "analyze_stock",
+                    "arguments": {
+                        "symbol": "MSFT",
+                        "period": "2y",
+                        "risk_free_rate": 0.04,
+                        "confidence_level": 0.95
+                    },
+                    "recovery": {
+                        "retries": 0,
+                        "retry_delay": 0.0,
+                        "cache_lookup_seconds": 1.4250021195039153e-05
+                    },
+                    "data": {
+                        "symbol": "MSFT",
+                        "data_source": "Yahoo Finance via yfinance",
+                        "generated_at": "2026-11-26T01:13:00.979311+00:00",
+                        "data": {
+                            "requested_period": "2y",
+                            "interval": "1d",
+                            "price_type": "adjusted",
+                            "start_date": "2024-11-26",
+                            "end_date": "2026-11-24",
+                            "observations": 500,
+                            "removed_observations": 1
+                        },
+                        "price": {
+                            "latest_close": 496.1300048828125,
+                            "latest_volume": 23104500.0
+                        },
+                        "technical_indicators": {
+                            "sma_20": 518.3805252075196,
+                            "sma_50": 518.6328930664063,
+                            "sma_200": 442.828857421875,
+                            "ema_12": 507.09297307208817,
+                            "ema_26": 514.6277790911536,
+                            "ema_20": 512.8507915388066,
+                            "rsi_14": 41.26068698584481,
+                            "macd": -7.5348060190654,
+                            "macd_signal": -3.095150202527872,
+                            "macd_histogram": -4.4396558165375275,
+                            "bollinger_middle": 518.3805252075196,
+                            "bollinger_upper": 553.1015219283919,
+                            "bollinger_lower": 483.6595284866472
+                        },
+                        "risk_and_performance": {
+                            "total_return": 0.17743920183335682,
+                            "annualized_mean_return": 0.12566206909617447,
+                            "cagr": 0.08540307923814416,
+                            "annualized_volatility": 0.2962236839384853,
+                            "sharpe_ratio": 0.29180078555341404,
+                            "maximum_drawdown": -0.3449839424510184,
+                            "daily_var": 0.02660593296842733,
+                            "daily_expected_shortfall": 0.037377297498220004
+                        },
+                        "assumptions": {
+                            "trading_days_per_year": 252,
+                            "annual_risk_free_rate": 0.04,
+                            "confidence_level": 0.95,
+                            "return_unit": "decimal",
+                            "var_method": "historical"
+                        },
+                        "warnings": [
+                            "Market data may be delayed or incomplete.",
+                            "The latest daily bar may be incomplete.",
+                            "Past performance does not guarantee future results.",
+                            "Risk-free rate is an assumed constant.",
+                            "Indicators may be unavailable for short periods."
+                        ]
+                    }
+                }
+            ],
+            "profile": {
+                "llm_calls": 2,
+                "tool_calls": 1,
+                "tool_rounds": 1,
+                "input_tokens": 1684,
+                "output_tokens": 506,
+                "load_time": 0.003278625,
+                "prompt_time": 1.679923,
+                "generation_time": 33.995122,
+                "tokens_per_second": 14.884488427486742,
+                "tpot": 0.06718403557312254,
+                "llm_latency": 35.70566924900049,
+                "tool_execution_time": 0.23273904097732157,
+                "total_latency": 35.94065337500069,
+                "history_messages": 5,
+                "request_id": "3ecc94be-17ef-44d3-819c-9d636a584fb4",
+                "status": "completed",
+                "state_transitions": 4,
+                "estimated_context_tokens_saved": 1,
+                "peak_estimated_context_tokens": 1344,
+                "validation_seconds": 0.00011033299961127341,
+                "ttft": null,
+                "context_preparation_seconds": 0.00171929199132137,
+                "context_estimation_errors": [
+                    364,
+                    386
+                ],
+                "context_input_budget": 2816
+            },
+            "cache": {
+                "hits": 0,
+                "misses": 5,
+                "shared_calls": 0,
+                "hit_ratio": 0.0
+            },
+            "recoveries": [
+                {
+                    "retries": 0,
+                    "retry_delay": 0.0,
+                    "cache_lookup_seconds": 1.4250021195039153e-05
+                }
+            ],
+            "latency": 35.94074250000995,
+            "llm_calls": 2,
+            "tool_calls": 1,
+            "input_tokens": 1684,
+            "output_tokens": 506,
+            "llm_latency": 35.70566924900049,
+            "tool_execution_time": 0.23273904097732157
+        },
+        {
+            "id": "T06",
+            "category": "financial_analysis",
+            "prompt": "엔비디아의 최근 6개월간 최대 낙폭을 분석해 줘.",
+            "expected_calls": [
+                {
+                    "tool": "analyze_stock",
+                    "arguments": {
+                        "symbol": "NVDA",
+                        "period": "6mo"
+                    }
+                }
+            ],
+            "actual_calls": [
+                {
+                    "tool": "analyze_stock",
+                    "arguments": {
+                        "confidence_level": 0.95,
+                        "symbol": "NVDA",
+                        "period": "6mo",
+                        "risk_free_rate": 0.04
+                    },
+                    "success": true,
+                    "execution_time": 0.22478799999225885
+                }
+            ],
+            "answer": "NVDA · 2026-11-24 · Yahoo Finance via yfinance\nAdjusted daily close: 155.38 (currency unavailable)\nPeriod 6mo · risk-free 4.00% · confidence 95% · 252 trading days/year\nannualized_mean_return: -44.52%\nannualized_volatility: 64.59%\ncagr: -47.57%\ndaily_expected_shortfall: 7.20%\ndaily_var: 4.52%\nmaximum_drawdown: -47.53%\nrsi_14: 39.47\nsharpe_ratio: -0.75\ntotal_return: -27.52%",
+            "error": null,
+            "tool_selection_correct": true,
+            "arguments_correct": true,
+            "argument_accuracy": 1.0,
+            "execution_success": true,
+            "passed": true,
+            "observations": [
+                {
+                    "success": true,
+                    "tool": "analyze_stock",
+                    "arguments": {
+                        "symbol": "NVDA",
+                        "period": "6mo",
+                        "risk_free_rate": 0.04,
+                        "confidence_level": 0.95
+                    },
+                    "recovery": {
+                        "retries": 0,
+                        "retry_delay": 0.0,
+                        "cache_lookup_seconds": 9.166978998109698e-06
+                    },
+                    "data": {
+                        "symbol": "NVDA",
+                        "data_source": "Yahoo Finance via yfinance",
+                        "generated_at": "2026-11-26T01:13:37.143103+00:00",
+                        "data": {
+                            "requested_period": "6mo",
+                            "interval": "1d",
+                            "price_type": "adjusted",
+                            "start_date": "2026-05-26",
+                            "end_date": "2026-11-24",
+                            "observations": 128,
+                            "removed_observations": 1
+                        },
+                        "price": {
+                            "latest_close": 155.3800048828125,
+                            "latest_volume": 386223600.0
+                        },
+                        "technical_indicators": {
+                            "sma_20": 175.78150177001953,
+                            "sma_50": 204.9464013671875,
+                            "sma_200": null,
+                            "ema_12": 160.9844201288106,
+                            "ema_26": 178.24651291015977,
+                            "ema_20": 171.7869255794749,
+                            "rsi_14": 39.46741612072737,
+                            "macd": -17.262092781349168,
+                            "macd_signal": -16.070923782514516,
+                            "macd_histogram": -1.1911689988346517,
+                            "bollinger_middle": 175.78150177001953,
+                            "bollinger_upper": 224.57698259181444,
+                            "bollinger_lower": 126.98602094822463
+                        },
+                        "risk_and_performance": {
+                            "total_return": -0.27517844212305353,
+                            "annualized_mean_return": -0.4451590939059324,
+                            "cagr": -0.4757161811158481,
+                            "annualized_volatility": 0.6458608031133871,
+                            "sharpe_ratio": -0.7499802697335893,
+                            "maximum_drawdown": -0.47529679026493876,
+                            "daily_var": 0.045215682236000664,
+                            "daily_expected_shortfall": 0.07195845819797515
+                        },
+                        "assumptions": {
+                            "trading_days_per_year": 252,
+                            "annual_risk_free_rate": 0.04,
+                            "confidence_level": 0.95,
+                            "return_unit": "decimal",
+                            "var_method": "historical"
+                        },
+                        "warnings": [
+                            "Market data may be delayed or incomplete.",
+                            "The latest daily bar may be incomplete.",
+                            "Past performance does not guarantee future results.",
+                            "Risk-free rate is an assumed constant.",
+                            "Indicators may be unavailable for short periods."
+                        ]
+                    }
+                }
+            ],
+            "profile": {
+                "llm_calls": 2,
+                "tool_calls": 1,
+                "tool_rounds": 1,
+                "input_tokens": 1707,
+                "output_tokens": 349,
+                "load_time": 0.0026557910000000002,
+                "prompt_time": 1.828382,
+                "generation_time": 24.705028,
+                "tokens_per_second": 14.126678990203938,
+                "tpot": 0.07078804584527221,
+                "llm_latency": 26.66334179099067,
+                "tool_execution_time": 0.22479316699900664,
+                "total_latency": 26.8905768749828,
+                "history_messages": 5,
+                "request_id": "c4bdf52a-1c09-47a5-9842-53c97ee31cc0",
+                "status": "completed",
+                "state_transitions": 4,
+                "estimated_context_tokens_saved": 1,
+                "peak_estimated_context_tokens": 1370,
+                "validation_seconds": 0.00029220900614745915,
+                "ttft": null,
+                "context_preparation_seconds": 0.0014618339773733169,
+                "context_estimation_errors": [
+                    376,
+                    400
+                ],
+                "context_input_budget": 2816
+            },
+            "cache": {
+                "hits": 0,
+                "misses": 6,
+                "shared_calls": 0,
+                "hit_ratio": 0.0
+            },
+            "recoveries": [
+                {
+                    "retries": 0,
+                    "retry_delay": 0.0,
+                    "cache_lookup_seconds": 9.166978998109698e-06
+                }
+            ],
+            "latency": 26.890728208003566,
+            "llm_calls": 2,
+            "tool_calls": 1,
+            "input_tokens": 1707,
+            "output_tokens": 349,
+            "llm_latency": 26.66334179099067,
+            "tool_execution_time": 0.22479316699900664
+        },
+        {
+            "id": "T07",
+            "category": "multi_asset",
+            "prompt": "애플과 엔비디아의 최근 1년간 변동성을 비교해 줘.",
+            "expected_calls": [
+                {
+                    "tool": "analyze_stock",
+                    "arguments": {
+                        "symbol": "AAPL",
+                        "period": "1y"
+                    }
+                },
+                {
+                    "tool": "analyze_stock",
+                    "arguments": {
+                        "symbol": "NVDA",
+                        "period": "1y"
+                    }
+                }
+            ],
+            "actual_calls": [
+                {
+                    "tool": "analyze_stock",
+                    "arguments": {
+                        "symbol": "AAPL",
+                        "period": "1y",
+                        "risk_free_rate": 0.04,
+                        "confidence_level": 0.95
+                    },
+                    "success": true,
+                    "execution_time": 0.35833745799027383
+                },
+                {
+                    "tool": "analyze_stock",
+                    "arguments": {
+                        "symbol": "NVDA",
+                        "period": "1y",
+                        "risk_free_rate": 0.04,
+                        "confidence_level": 0.95
+                    },
+                    "success": true,
+                    "execution_time": 0.3042568330129143
+                }
+            ],
+            "answer": "AAPL · 2026-11-24 · Yahoo Finance via yfinance\nAdjusted daily close: 354.07 (currency unavailable)\nPeriod 1y · risk-free 4.00% · confidence 95% · 252 trading days/year\nannualized_mean_return: 28.14%\nannualized_volatility: 25.05%\ncagr: 28.21%\ndaily_expected_shortfall: 3.47%\ndaily_var: 2.02%\nmaximum_drawdown: -13.80%\nrsi_14: 56.86\nsharpe_ratio: 0.97\ntotal_return: 28.01%\n\nNVDA · 2026-11-24 · Yahoo Finance via yfinance\nAdjusted daily close: 155.38 (currency unavailable)\nPeriod 1y · risk-free 4.00% · confidence 95% · 252 trading days/year\nannualized_mean_return: -1.88%\nannualized_volatility: 52.33%\ncagr: -13.67%\ndaily_expected_shortfall: 6.00%\ndaily_var: 4.31%\nmaximum_drawdown: -47.53%\nrsi_14: 39.47\nsharpe_ratio: -0.11\ntotal_return: -13.60%",
+            "error": null,
+            "tool_selection_correct": true,
+            "arguments_correct": true,
+            "argument_accuracy": 1.0,
+            "execution_success": true,
+            "passed": true,
+            "observations": [
+                {
+                    "success": true,
+                    "tool": "analyze_stock",
+                    "arguments": {
+                        "symbol": "AAPL",
+                        "period": "1y",
+                        "risk_free_rate": 0.04,
+                        "confidence_level": 0.95
+                    },
+                    "recovery": {
+                        "retries": 0,
+                        "retry_delay": 0.0,
+                        "cache_lookup_seconds": 3.7959020119160414e-05
+                    },
+                    "data": {
+                        "symbol": "AAPL",
+                        "data_source": "Yahoo Finance via yfinance",
+                        "generated_at": "2026-11-26T01:14:07.367313+00:00",
+                        "data": {
+                            "requested_period": "1y",
+                            "interval": "1d",
+                            "price_type": "adjusted",
+                            "start_date": "2025-11-26",
+                            "end_date": "2026-11-24",
+                            "observations": 250,
+                            "removed_observations": 1
+                        },
+                        "price": {
+                            "latest_close": 354.07000732421875,
+                            "latest_volume": 41270400.0
+                        },
+                        "technical_indicators": {
+                            "sma_20": 347.9398025512695,
+                            "sma_50": 342.3697332763672,
+                            "sma_200": 303.5461187744141,
+                            "ema_12": 349.74752334728277,
+                            "ema_26": 346.9778284122146,
+                            "ema_20": 348.26608562666485,
+                            "rsi_14": 56.85560786633576,
+                            "macd": 2.7696949350681734,
+                            "macd_signal": 3.188643833740065,
+                            "macd_histogram": -0.41894889867189145,
+                            "bollinger_middle": 347.9398025512695,
+                            "bollinger_upper": 360.2289412335699,
+                            "bollinger_lower": 335.6506638689691
+                        },
+                        "risk_and_performance": {
+                            "total_return": 0.2801425282927643,
+                            "annualized_mean_return": 0.28141485937262584,
+                            "cagr": 0.2821036898681948,
+                            "annualized_volatility": 0.25047489794782496,
+                            "sharpe_ratio": 0.9669276080498777,
+                            "maximum_drawdown": -0.13798531392782076,
+                            "daily_var": 0.020168785439702346,
+                            "daily_expected_shortfall": 0.034741875611686464
+                        },
+                        "assumptions": {
+                            "trading_days_per_year": 252,
+                            "annual_risk_free_rate": 0.04,
+                            "confidence_level": 0.95,
+                            "return_unit": "decimal",
+                            "var_method": "historical"
+                        },
+                        "warnings": [
+                            "Market data may be delayed or incomplete.",
+                            "The latest daily bar may be incomplete.",
+                            "Past performance does not guarantee future results.",
+                            "Risk-free rate is an assumed constant.",
+                            "Indicators may be unavailable for short periods."
+                        ]
+                    }
+                },
+                {
+                    "success": true,
+                    "tool": "analyze_stock",
+                    "arguments": {
+                        "symbol": "NVDA",
+                        "period": "1y",
+                        "risk_free_rate": 0.04,
+                        "confidence_level": 0.95
+                    },
+                    "recovery": {
+                        "retries": 0,
+                        "retry_delay": 0.0,
+                        "cache_lookup_seconds": 3.541994374245405e-06
+                    },
+                    "data": {
+                        "symbol": "NVDA",
+                        "data_source": "Yahoo Finance via yfinance",
+                        "generated_at": "2026-11-26T01:14:07.314763+00:00",
+                        "data": {
+                            "requested_period": "1y",
+                            "interval": "1d",
+                            "price_type": "adjusted",
+                            "start_date": "2025-11-26",
+                            "end_date": "2026-11-24",
+                            "observations": 250,
+                            "removed_observations": 1
+                        },
+                        "price": {
+                            "latest_close": 155.3800048828125,
+                            "latest_volume": 386223600.0
+                        },
+                        "technical_indicators": {
+                            "sma_20": 175.78150177001953,
+                            "sma_50": 204.9464013671875,
+                            "sma_200": 202.81462799072267,
+                            "ema_12": 160.98442013073014,
+                            "ema_26": 178.24634543348583,
+                            "ema_20": 171.78692494208389,
+                            "rsi_14": 39.467685293034116,
+                            "macd": -17.261925302755685,
+                            "macd_signal": -16.070677486253892,
+                            "macd_histogram": -1.191247816501793,
+                            "bollinger_middle": 175.78150177001953,
+                            "bollinger_upper": 224.5769825918145,
+                            "bollinger_lower": 126.98602094822458
+                        },
+                        "risk_and_performance": {
+                            "total_return": -0.13595761764906278,
+                            "annualized_mean_return": -0.018766301571069337,
+                            "cagr": -0.13673990070775366,
+                            "annualized_volatility": 0.5232960806507213,
+                            "sharpe_ratio": -0.11081693354621848,
+                            "maximum_drawdown": -0.47529679026493876,
+                            "daily_var": 0.04312139922718334,
+                            "daily_expected_shortfall": 0.05999380220605181
+                        },
+                        "assumptions": {
+                            "trading_days_per_year": 252,
+                            "annual_risk_free_rate": 0.04,
+                            "confidence_level": 0.95,
+                            "return_unit": "decimal",
+                            "var_method": "historical"
+                        },
+                        "warnings": [
+                            "Market data may be delayed or incomplete.",
+                            "The latest daily bar may be incomplete.",
+                            "Past performance does not guarantee future results.",
+                            "Risk-free rate is an assumed constant.",
+                            "Indicators may be unavailable for short periods."
+                        ]
+                    }
+                }
+            ],
+            "profile": {
+                "llm_calls": 2,
+                "tool_calls": 2,
+                "tool_rounds": 1,
+                "input_tokens": 1933,
+                "output_tokens": 568,
+                "load_time": 0.003213125,
+                "prompt_time": 3.268285,
+                "generation_time": 37.682766,
+                "tokens_per_second": 15.07320349042318,
+                "tpot": 0.06634289788732395,
+                "llm_latency": 40.990542957995785,
+                "tool_execution_time": 0.3603387500043027,
+                "total_latency": 41.35325562499929,
+                "history_messages": 6,
+                "request_id": "d386ca16-e159-4cf5-8f93-2b4a9565b30f",
+                "status": "completed",
+                "state_transitions": 4,
+                "estimated_context_tokens_saved": 2,
+                "peak_estimated_context_tokens": 1599,
+                "validation_seconds": 0.00023754200083203614,
+                "ttft": null,
+                "context_preparation_seconds": 0.0015387920138891786,
+                "context_estimation_errors": [
+                    377,
+                    404
+                ],
+                "context_input_budget": 2816
+            },
+            "cache": {
+                "hits": 0,
+                "misses": 8,
+                "shared_calls": 0,
+                "hit_ratio": 0.0
+            },
+            "recoveries": [
+                {
+                    "retries": 0,
+                    "retry_delay": 0.0,
+                    "cache_lookup_seconds": 3.7959020119160414e-05
+                },
+                {
+                    "retries": 0,
+                    "retry_delay": 0.0,
+                    "cache_lookup_seconds": 3.541994374245405e-06
+                }
+            ],
+            "latency": 41.35334329100442,
+            "llm_calls": 2,
+            "tool_calls": 2,
+            "input_tokens": 1933,
+            "output_tokens": 568,
+            "llm_latency": 40.990542957995785,
+            "tool_execution_time": 0.3603387500043027
+        },
+        {
+            "id": "T08",
+            "category": "conceptual",
+            "prompt": "Sharpe Ratio의 수학적 정의를 설명해 줘.",
+            "expected_calls": [],
+            "actual_calls": [],
+            "answer": "Sharpe Ratio는 투자 포트폴리오의 **수익률과 위험(변동성)** 사이의 관계를 측정하는 지표로, 다음과 같은 수학적 정의를 가집니다:\n\n$$\n\\text{Sharpe Ratio} = \\frac{E(R_p - R_f)}{\\sigma_p}\n$$\n\n### 수학적 정의 요소:\n1. **$E(R_p - R_f)$**: 포트폴리오의 **초과 수익률**(Expected Excess Return)  \n   - $R_p$: 포트폴리오의 기대 수익률  \n   - $R_f$: 무위험 자산의 수익률 (예: 국채 수익률)  \n   - 이 값은 포트폴리오가 무위험 자산 대비 얼마나 더 수익을 내는지를 나타냅니다.\n\n2. **$\\sigma_p$**: 포트폴리오의 **표준 편차**(Standard Deviation)  \n   - 포트폴리오의 수익률의 변동성을 나타내며, 위험을 측정합니다.\n\n### 해석:\n- **Sharpe Ratio 값이 높을수록** 포트폴리오가 **위험 대비 더 높은 수익**을 내는 것으로 해석됩니다.\n- 일반적으로 **Sharpe Ratio가 1 이상**은 우수한 성과로 간주되며, **0.5 미만**은 낮은 성과로 간주됩니다.\n\n### 주의사항:\n- Sharpe Ratio는 **정규 분포를 가정**하는 경우에만 정확하게 작동합니다.\n- 비정규 분포의 경우, **Sortino Ratio**와 같은 다른 지표가 더 적절할 수 있습니다.",
+            "error": null,
+            "tool_selection_correct": true,
+            "arguments_correct": true,
+            "argument_accuracy": null,
+            "execution_success": true,
+            "passed": true,
+            "observations": [],
+            "profile": {
+                "llm_calls": 1,
+                "tool_calls": 0,
+                "tool_rounds": 0,
+                "input_tokens": 729,
+                "output_tokens": 393,
+                "load_time": 0.002209292,
+                "prompt_time": 0.215183,
+                "generation_time": 26.685382,
+                "tokens_per_second": 14.727164108049868,
+                "tpot": 0.06790173536895674,
+                "llm_latency": 26.94228387498879,
+                "tool_execution_time": 0.0,
+                "total_latency": 26.943260250001913,
+                "history_messages": 3,
+                "request_id": "7e23e7e5-1872-4e2c-a15d-636293d1ba4e",
+                "status": "completed",
+                "state_transitions": 2,
+                "estimated_context_tokens_saved": 0,
+                "peak_estimated_context_tokens": 1100,
+                "validation_seconds": 1.7500133253633976e-06,
+                "ttft": null,
+                "context_preparation_seconds": 0.0007672909996472299,
+                "context_estimation_errors": [
+                    371
+                ],
+                "context_input_budget": 2816
+            },
+            "cache": {
+                "hits": 0,
+                "misses": 8,
+                "shared_calls": 0,
+                "hit_ratio": 0.0
+            },
+            "recoveries": [],
+            "latency": 26.94333262500004,
+            "llm_calls": 1,
+            "tool_calls": 0,
+            "input_tokens": 729,
+            "output_tokens": 393,
+            "llm_latency": 26.94228387498879,
+            "tool_execution_time": 0.0
+        },
+        {
+            "id": "T09",
+            "category": "conceptual",
+            "prompt": "Explain the difference between simple and log returns.",
+            "expected_calls": [],
+            "actual_calls": [],
+            "answer": "Simple returns and log returns are two methods to measure the performance of an asset over time. Here's a breakdown of their differences:\n\n### 1. **Definition**\n- **Simple Return (Also known as Arithmetic Return):**  \n  $$\n  R_t = \\frac{P_t - P_{t-1}}{P_{t-1}}\n  $$  \n  where $ P_t $ is the price at time $ t $, and $ P_{t-1} $ is the price at time $ t-1 $.\n\n- **Log Return (Also known as Continuously Compounded Return):**  \n  $$\n  r_t = \\ln\\left(\\frac{P_t}{P_{t-1}}\\right)\n  $$  \n  where $ \\ln $ is the natural logarithm.\n\n### 2. **Properties**\n- **Simple Return:**  \n  - Easy to interpret and commonly used in finance.  \n  - Not additive over time.  \n  - Suitable for short-term analysis.\n\n- **Log Return:**  \n  - Additive over time, which makes it useful for modeling and forecasting.  \n  - More mathematically convenient for statistical analysis.  \n  - Often used in quantitative finance and risk management.\n\n### 3. **Relationship Between Simple and Log Returns**\n- The log return is approximately equal to the simple return for small changes in price.  \n- For larger changes, the two measures diverge.  \n- The relationship can be approximated as:  \n  $$\n  r_t \\approx R_t - \\frac{R_t^2}{2}\n  $$\n\n### 4. **Use Cases**\n- **Simple Return:**  \n  - Commonly used in portfolio management and performance evaluation.  \n  - Preferred for short-term analysis and when the focus is on percentage changes.\n\n- **Log Return:**  \n  - Used in models that require time-additivity, such as in stochastic processes and volatility modeling.  \n  - Preferred in risk management and for long-term analysis.\n\n### 5. **Summary**\n- **Simple Return** is intuitive and widely used for short-term performance measurement.  \n- **Log Return** is mathematically convenient and preferred for long-term analysis and modeling.  \n\nBoth measures have their own advantages and are used depending on the context and the specific requirements of the analysis.",
+            "error": null,
+            "tool_selection_correct": true,
+            "arguments_correct": true,
+            "argument_accuracy": null,
+            "execution_success": true,
+            "passed": true,
+            "observations": [],
+            "profile": {
+                "llm_calls": 1,
+                "tool_calls": 0,
+                "tool_rounds": 0,
+                "input_tokens": 724,
+                "output_tokens": 478,
+                "load_time": 0.004800291,
+                "prompt_time": 0.21377,
+                "generation_time": 33.854561999,
+                "tokens_per_second": 14.119219738070138,
+                "tpot": 0.0708254435125523,
+                "llm_latency": 34.09401324999635,
+                "tool_execution_time": 0.0,
+                "total_latency": 34.095529832993634,
+                "history_messages": 3,
+                "request_id": "da6e3cf0-628c-40e7-8025-c6b67378c0e0",
+                "status": "completed",
+                "state_transitions": 2,
+                "estimated_context_tokens_saved": 0,
+                "peak_estimated_context_tokens": 1091,
+                "validation_seconds": 1.3958022464066744e-05,
+                "ttft": null,
+                "context_preparation_seconds": 0.0010527500126045197,
+                "context_estimation_errors": [
+                    367
+                ],
+                "context_input_budget": 2816
+            },
+            "cache": {
+                "hits": 0,
+                "misses": 8,
+                "shared_calls": 0,
+                "hit_ratio": 0.0
+            },
+            "recoveries": [],
+            "latency": 34.09567525002058,
+            "llm_calls": 1,
+            "tool_calls": 0,
+            "input_tokens": 724,
+            "output_tokens": 478,
+            "llm_latency": 34.09401324999635,
+            "tool_execution_time": 0.0
+        },
+        {
+            "id": "T10",
+            "category": "conceptual",
+            "prompt": "Maximum Drawdown이 무엇인지 설명해 줘.",
+            "expected_calls": [],
+            "actual_calls": [],
+            "answer": "**Maximum Drawdown (MDD)**는 투자 포트폴리오나 자산의 가치가 최고점에서 최저점까지 떨어진 **최대 감소 비율**을 나타내는 지표입니다. 이는 투자자에게 **최대 손실**을 경험할 수 있는 위험을 측정하는 중요한 지표로, 일반적으로 **% 단위**로 표현됩니다.\n\n### 정의:\n- **Maximum Drawdown (MDD)** = $\\frac{\\text{최고점 가치} - \\text{최저점 가치}}{\\text{최고점 가치}} \\times 100\\%$\n\n### 예시:\n- 만약 자산이 100만 원에서 80만 원으로 하락했다면, MDD는:\n  $$\n  \\frac{100 - 80}{100} \\times 100\\% = 20\\%\n  $$\n\n### 중요성:\n- **위험 관리**: MDD는 투자 자산이 얼마나 큰 손실을 경험할 수 있는지를 보여줍니다.\n- **투자 성과 평가**: MDD는 수익률과 병행하여 투자 성과를 평가하는 데 사용됩니다.\n- **포트폴리오 비교**: 서로 다른 자산이나 포트폴리오 간의 위험 수준을 비교하는 데 유용합니다.\n\n### 주의사항:\n- MDD는 **역사적 데이터** 기반의 지표이므로, **미래의 손실**을 보장하지 않습니다.\n- MDD는 단일 자산의 위험을 평가할 뿐, 포트폴리오 전체의 위험을 포괄적으로 설명하지 않습니다.\n\n### 결론:\nMaximum Drawdown은 투자자에게 **최대 손실**을 경험할 수 있는 위험을 측정하는 중요한 지표로, 투자 결정에 중요한 참고 자료가 됩니다.",
+            "error": null,
+            "tool_selection_correct": true,
+            "arguments_correct": true,
+            "argument_accuracy": null,
+            "execution_success": true,
+            "passed": true,
+            "observations": [],
+            "profile": {
+                "llm_calls": 1,
+                "tool_calls": 0,
+                "tool_rounds": 0,
+                "input_tokens": 725,
+                "output_tokens": 451,
+                "load_time": 0.003406375,
+                "prompt_time": 0.211426,
+                "generation_time": 29.914967,
+                "tokens_per_second": 15.076065435739908,
+                "tpot": 0.06633030376940133,
+                "llm_latency": 30.15462887499598,
+                "tool_execution_time": 0.0,
+                "total_latency": 30.156901708018268,
+                "history_messages": 3,
+                "request_id": "a8056c82-a92b-40a7-b80e-cd443fa5a902",
+                "status": "completed",
+                "state_transitions": 2,
+                "estimated_context_tokens_saved": 0,
+                "peak_estimated_context_tokens": 1097,
+                "validation_seconds": 1.3750104699283838e-06,
+                "ttft": null,
+                "context_preparation_seconds": 0.002057416015304625,
+                "context_estimation_errors": [
+                    372
+                ],
+                "context_input_budget": 2816
+            },
+            "cache": {
+                "hits": 0,
+                "misses": 8,
+                "shared_calls": 0,
+                "hit_ratio": 0.0
+            },
+            "recoveries": [],
+            "latency": 30.15701083399472,
+            "llm_calls": 1,
+            "tool_calls": 0,
+            "input_tokens": 725,
+            "output_tokens": 451,
+            "llm_latency": 30.15462887499598,
+            "tool_execution_time": 0.0
+        }
+    ]
+}

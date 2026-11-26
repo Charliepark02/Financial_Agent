@@ -1,3 +1,6 @@
+from pathlib import Path
+from src.memory.persistent import AnalysisArchive
+from src.agents.planning_agent import PlanningAgent
 
 import json
 
@@ -101,6 +104,27 @@ def print_tool_logs(logs):
         )
 
 
+def memory_command(agent, command):
+    words = command.split()
+    if words == ["memory", "on"]:
+        agent.archive = AnalysisArchive(Path.home() / ".financial-agent" / "analyses.sqlite3")
+        return "Memory enabled."
+    if words == ["memory", "off"]:
+        agent.archive = None
+        return "Memory disabled."
+    if agent.archive is None:
+        return "Memory disabled. Use memory on."
+    if words[:2] == ["memory", "clear"] and len(words) == 3:
+        agent.archive.clear(words[2])
+        return "Archive cleared."
+    if words[:2] == ["memory", "delete"] and len(words) == 3:
+        return f"Deleted {agent.archive.delete(int(words[2]))} record(s)."
+    if words == ["memory"] or (words[:2] == ["memory", "search"] and len(words) == 3):
+        rows = agent.archive.search(words[2] if len(words) == 3 else "")
+        return agent.context_manager.historical_context(rows) or "No records within display budget."
+    raise ValueError("memory on/off | memory | memory search SYMBOL | memory delete ID | memory clear CONFIRM")
+
+
 def main():
 
     agent = FinancialAgent()
@@ -120,6 +144,9 @@ def main():
     print("  tools   - List available tools")
     print("  metrics - Show latest performance metrics")
     print("  logs    - Show latest tool execution logs")
+
+    print("  plan REQUEST - Plan independent tasks explicitly")
+    print("  memory on/off | memory | memory search SYMBOL | memory delete ID | memory clear CONFIRM")
 
     while True:
 
@@ -167,13 +194,21 @@ def main():
 
         try:
 
+            if user_input.split()[0] == "memory":
+                print(memory_command(agent, user_input))
+                continue
+            if user_input.startswith("plan "):
+                print(PlanningAgent(registry=agent.registry, archive=agent.archive).chat(user_input[5:]))
+                continue
             print("\nAgent is processing your request...")
 
-            answer = agent.chat(user_input)
+            chunks = agent.stream_chat(user_input)
 
             print("\nAssistant:\n")
 
-            print(answer)
+            for chunk in chunks:
+                print(chunk, end="", flush=True)
+            print()
 
             print_tool_logs(
                 agent.get_tool_logs()

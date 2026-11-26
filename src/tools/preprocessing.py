@@ -32,6 +32,9 @@ def clean_market_data(
 
     data = df[OHLCV_COLUMNS].copy()
 
+    if data.index.hasnans:
+        raise ValueError("Invalid observation dates.")
+
     data = data.sort_index()
 
     data = data.loc[

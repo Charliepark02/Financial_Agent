@@ -1,4 +1,5 @@
 
+import math
 import yfinance as yf
 import pandas as pd
 
@@ -23,6 +24,7 @@ def get_historical_data(
         period=period,
         interval=interval,
         auto_adjust=True,
+        timeout=10,
         raise_errors=True
     )
 
@@ -31,6 +33,10 @@ def get_historical_data(
             f"No market data found for {symbol}."
         )
 
+    if not isinstance(df.index, pd.DatetimeIndex) or df.index.hasnans:
+        raise ValueError("Invalid historical dates.")
+
+    df.attrs["currency"] = ticker.history_metadata.get("currency")
     return df
 
 
@@ -50,6 +56,7 @@ def get_latest_price(symbol: str) -> dict:
         period="5d",
         interval="1d",
         auto_adjust=False,
+        timeout=10,
         raise_errors=True
     )
 
@@ -62,6 +69,9 @@ def get_latest_price(symbol: str) -> dict:
 
     if close.empty:
         raise ValueError("No valid closing price.")
+
+    if not math.isfinite(close.iloc[-1]) or close.iloc[-1] <= 0 or pd.isna(close.index[-1]):
+        raise ValueError("Invalid daily close or date.")
 
     metadata = ticker.history_metadata
 

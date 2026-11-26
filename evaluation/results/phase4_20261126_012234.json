@@ -1,0 +1,403 @@
+{
+  "dataset": "phase4-v1",
+  "timestamp": "2026-11-26T01:22:16.345827+00:00",
+  "method": "offline fixtures and optional repeated live streaming price request",
+  "cases": [
+    {
+      "case": "test_phase4_flow.Phase4FlowTests.test_generation_failure_terminal_state",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_phase4_flow.Phase4FlowTests.test_history_after_restart_and_live_lookup",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_phase4_flow.Phase4FlowTests.test_invalid_input_terminal_and_memory_disabled",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_phase4_flow.Phase4FlowTests.test_invalid_plan_exhausts_before_tool_execution",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_phase4_flow.Phase4FlowTests.test_partial_batch_and_fabricated_synthesis",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_phase4_flow.Phase4FlowTests.test_planner_recovers_without_execution",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_phase4_flow.Phase4FlowTests.test_provider_timeout_after_success_preserves_verified_observation",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_phase4_flow.Phase4FlowTests.test_short_term_history",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_phase4_flow.Phase4FlowTests.test_stream_tool_limit",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_grounding.GroundingTests.test_analysis_provenance_and_structured_values",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_grounding.GroundingTests.test_asset_date_currency_and_price_basis",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_grounding.GroundingTests.test_explicit_trade_assertion",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_grounding.GroundingTests.test_units",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_grounding.GroundingTests.test_untrusted_data_and_partial_results",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_archive.ArchiveTests.test_restart_filters_budget_and_deletion",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_archive.ArchiveTests.test_rollback_on_storage_failure",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_stream.StreamTests.test_buffered_stream_and_timing",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_stream.StreamTests.test_incomplete_stream",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_recovery.RecoveryTests.test_backoff_exhaustion",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_recovery.RecoveryTests.test_provider_delay_larger_than_cap",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_recovery.RecoveryTests.test_provider_retry_after_within_cap",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_recovery.RecoveryTests.test_recovery_and_permanent_failure",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_context_manager.TestContextManager.test_active_tool_turn_preserved",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_context_manager.TestContextManager.test_context_metrics",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_context_manager.TestContextManager.test_context_overflow",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_context_manager.TestContextManager.test_current_question_preserved",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_context_manager.TestContextManager.test_empty_token_estimation",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_context_manager.TestContextManager.test_failed_tool_result_preserved",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_context_manager.TestContextManager.test_input_budget",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_context_manager.TestContextManager.test_invalid_budget",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_context_manager.TestContextManager.test_non_ascii_estimation",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_context_manager.TestContextManager.test_original_messages_unchanged",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_context_manager.TestContextManager.test_sliding_window",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_context_manager.TestContextManager.test_split_history",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_context_manager.TestContextManager.test_system_prompt_preserved",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_context_manager.TestContextManager.test_token_estimation",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_context_manager.TestContextManager.test_tool_result_compression",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_context_manager.TestContextManager.test_tool_schema_budget",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_tool_execution.ToolExecutionTests.test_failed_execution_is_retried",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_tool_execution.ToolExecutionTests.test_independent_calls_overlap_and_keep_order",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_tool_execution.ToolExecutionTests.test_normalized_cache_expiry_invalidation_and_isolation",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_tool_registry.TestToolRegistry.test_default_arguments",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_tool_registry.TestToolRegistry.test_external_api_failure",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_tool_registry.TestToolRegistry.test_invalid_confidence_level",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_tool_registry.TestToolRegistry.test_invalid_period",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_tool_registry.TestToolRegistry.test_invalid_risk_free_rate",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_tool_registry.TestToolRegistry.test_invalid_symbol",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_tool_registry.TestToolRegistry.test_missing_symbol",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_tool_registry.TestToolRegistry.test_registered_tools",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_tool_registry.TestToolRegistry.test_successful_execution",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_tool_registry.TestToolRegistry.test_symbol_normalization",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_tool_registry.TestToolRegistry.test_unexpected_argument",
+      "passed": true,
+      "details": []
+    },
+    {
+      "case": "test_tool_registry.TestToolRegistry.test_unknown_tool",
+      "passed": true,
+      "details": []
+    }
+  ],
+  "fixtures": {
+    "claims_submitted": 5,
+    "claims_with_reference": 4,
+    "correct_supported_claims": 2,
+    "unsupported_or_unavailable": 3,
+    "classification_decisions_correct": 5,
+    "retrieval_queries": 2,
+    "correct_retrievals": 2,
+    "transient_requests": 1,
+    "recovered_requests": 1,
+    "retry_metrics": {
+      "retries": 1,
+      "retry_delay": 0.2815184245711503
+    }
+  },
+  "stream_probes": [
+    {
+      "model_resident_at_start": false,
+      "cache_before": {
+        "hits": 0,
+        "misses": 0,
+        "shared_calls": 0,
+        "hit_ratio": 0.0
+      },
+      "cache_after": {
+        "hits": 0,
+        "misses": 1,
+        "shared_calls": 0,
+        "hit_ratio": 0.0
+      },
+      "wall": 13.302890916995239,
+      "metrics": {
+        "llm_calls": 2,
+        "tool_calls": 1,
+        "tool_rounds": 1,
+        "input_tokens": 1522,
+        "output_tokens": 66,
+        "load_time": 3.5834240410000002,
+        "prompt_time": 4.602961,
+        "generation_time": 4.212747,
+        "tokens_per_second": 15.666737166983918,
+        "tpot": 0.0638295,
+        "llm_latency": 12.445634915988194,
+        "tool_execution_time": 0.8549625000159722,
+        "total_latency": 13.302724124980159,
+        "history_messages": 5,
+        "request_id": "a0a40532-4d90-4fb8-a7d2-4ae0bcd1fde6",
+        "status": "completed",
+        "state_transitions": 4,
+        "estimated_context_tokens_saved": 1,
+        "peak_estimated_context_tokens": 1212,
+        "validation_seconds": 9.445799514651299e-05,
+        "ttft": 10.422440374997677,
+        "context_preparation_seconds": 0.0008127079927362502,
+        "context_estimation_errors": [
+          363,
+          413
+        ],
+        "context_input_budget": 2816,
+        "first_visible_seconds": 13.30284849999589
+      },
+      "answer": "AAPL · 2026-11-24 · Yahoo Finance via yfinance\nUnadjusted daily close: 354.07 USD",
+      "tools": [
+        {
+          "tool": "get_latest_price",
+          "arguments": {
+            "symbol": "AAPL"
+          },
+          "success": true,
+          "execution_time": 0.8549319170124363
+        }
+      ]
+    },
+    {
+      "model_resident_at_start": true,
+      "cache_before": {
+        "hits": 0,
+        "misses": 1,
+        "shared_calls": 0,
+        "hit_ratio": 0.0
+      },
+      "cache_after": {
+        "hits": 1,
+        "misses": 1,
+        "shared_calls": 0,
+        "hit_ratio": 0.5
+      },
+      "wall": 4.795714667008724,
+      "metrics": {
+        "llm_calls": 2,
+        "tool_calls": 1,
+        "tool_rounds": 1,
+        "input_tokens": 1522,
+        "output_tokens": 66,
+        "load_time": 0.0036703760000000004,
+        "prompt_time": 0.6512439999999999,
+        "generation_time": 4.111953,
+        "tokens_per_second": 16.050767117231157,
+        "tpot": 0.06230231818181818,
+        "llm_latency": 4.792661626037443,
+        "tool_execution_time": 0.00022258399985730648,
+        "total_latency": 4.7955554999934975,
+        "history_messages": 5,
+        "request_id": "498b7c50-175a-466d-9224-6168e60d99b8",
+        "status": "completed",
+        "state_transitions": 4,
+        "estimated_context_tokens_saved": 1,
+        "peak_estimated_context_tokens": 1212,
+        "validation_seconds": 4.166699363850057e-05,
+        "ttft": 2.1415341250249185,
+        "context_preparation_seconds": 0.002183708013035357,
+        "context_estimation_errors": [
+          363,
+          413
+        ],
+        "context_input_budget": 2816,
+        "first_visible_seconds": 4.795700250018854
+      },
+      "answer": "AAPL · 2026-11-24 · Yahoo Finance via yfinance\nUnadjusted daily close: 354.07 USD",
+      "tools": [
+        {
+          "tool": "get_latest_price",
+          "arguments": {
+            "symbol": "AAPL"
+          },
+          "success": true,
+          "execution_time": 0.0002134160022251308
+        }
+      ]
+    }
+  ]
+}

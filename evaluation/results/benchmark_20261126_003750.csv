@@ -1,0 +1,180 @@
+id,category,prompt,expected_calls,actual_calls,answer,error,tool_selection_correct,arguments_correct,argument_accuracy,execution_success,passed,latency,llm_calls,tool_calls,input_tokens,output_tokens,llm_latency,tool_execution_time
+T01,price_lookup,What is the latest stock price of Apple?,"[{'tool': 'get_latest_price', 'arguments': {'symbol': 'AAPL'}}]","[{'tool': 'get_latest_price', 'arguments': {'symbol': 'AAPL'}, 'success': True, 'execution_time': 0.6354095000133384}]","The latest available daily closing price of Apple (AAPL) is **$355.58** USD, as of **November 25, 2026**, according to **Yahoo Finance via yfinance**.",,True,True,1.0,True,True,5.660857541981386,2,1,1558,71,5.023896250000689,0.6354095000133384
+T02,price_lookup,엔비디아의 최신 주가를 알려줘.,"[{'tool': 'get_latest_price', 'arguments': {'symbol': 'NVDA'}}]","[{'tool': 'get_latest_price', 'arguments': {'symbol': 'NVDA'}, 'success': True, 'execution_time': 0.1787630420003552}]","엔비디아(NVDA)의 최신 주가 정보는 다음과 같습니다:
+
+- **주가**: 149.30 USD  
+- **통화**: 미국 달러 (USD)  
+- **날짜**: 2026년 11월 25일  
+- **데이터 유형**: 최신 가용 일일 종가  
+- **데이터 출처**: Yahoo Finance via yfinance  
+
+이 주가는 실시간 시장 가격이 아닙니다. 시장이 개장 중이라면, 실제 거래 가격과 다를 수 있습니다.",,True,True,1.0,True,True,10.384127958008321,2,1,1566,152,10.20229762402596,0.1787630420003552
+T03,price_lookup,삼성전자의 최신 주가를 알려줘.,"[{'tool': 'get_latest_price', 'arguments': {'symbol': '005930.KS'}}]","[{'tool': 'get_latest_price', 'arguments': {'symbol': '005930.KS'}, 'success': True, 'execution_time': 0.18113829102367163}]","삼성전자(005930.KS)의 최신 주가(2026년 11월 26일 기준)는 **172,900 원**입니다.  
+- **통화**: 원화 (KRW)  
+- **데이터 출처**: Yahoo Finance via yfinance  
+- **가격 유형**: 최근 가용 일일 종가",,True,True,1.0,True,True,7.957306833006442,2,1,1574,118,7.773336165992077,0.18113829102367163
+T04,financial_analysis,애플의 최근 1년간 Sharpe Ratio를 계산해 줘.,"[{'tool': 'analyze_stock', 'arguments': {'symbol': 'AAPL', 'period': '1y'}}]","[{'tool': 'analyze_stock', 'arguments': {'risk_free_rate': 0.04, 'confidence_level': 0.95, 'symbol': 'AAPL', 'period': '1y'}, 'success': True, 'execution_time': 0.19724874998792075}]","애플(AAPL)의 최근 1년간 **Sharpe Ratio**는 **0.98**입니다.
+
+### 설명:
+- **Sharpe Ratio**는 투자 수익률을 위험(변동성)에 대한 수익률로 표준화한 지표로, 수익 대비 위험을 평가합니다.
+- 이 값은 **0.98**로, 연간 무위험 수익률(4%)을 기준으로 계산되었습니다.
+- 이는 애플의 최근 1년간 수익률이 위험 수준에 비해 상대적으로 높은 수익을 기록했다는 것을 시사합니다.
+
+### 주의사항:
+- 과거 성과는 미래 결과를 보장하지 않습니다.
+- 위험은 항상 존재하며, 투자 결정 시 위험 관리가 필요합니다.",,True,True,1.0,True,True,22.258489582978655,2,1,2298,245,22.05839412502246,0.19724874998792075
+T05,financial_analysis,Analyze Microsoft's volatility over the past 2 years.,"[{'tool': 'analyze_stock', 'arguments': {'symbol': 'MSFT', 'period': '2y'}}]","[{'tool': 'analyze_stock', 'arguments': {'risk_free_rate': 0.04, 'confidence_level': 0.95, 'symbol': 'MSFT', 'period': '2y'}, 'success': True, 'execution_time': 0.2283207919972483}]","Microsoft's volatility over the past 2 years is quantified as follows:
+
+- **Annualized Volatility**: 29.61%  
+- **Daily Volatility (VaR at 95% confidence level)**: 2.66%  
+- **Daily Expected Shortfall (at 95% confidence level)**: 3.74%  
+
+### Key Observations:
+- **Annualized Volatility** measures the standard deviation of annualized returns, indicating the degree of price fluctuation.
+- **Daily VaR** estimates the maximum potential loss in value of the stock over a single day with 95% confidence.
+- **Daily Expected Shortfall** provides a more conservative estimate of potential losses, accounting for extreme events.
+
+### Risk and Performance Summary:
+- **Total Return (2 years)**: 16.27%
+- **Annualized Mean Return**: 11.91%
+- **Compound Annual Growth Rate (CAGR)**: 7.85%
+- **Maximum Drawdown**: -34.50% (the worst-case decline over the 2-year period)
+
+### Assumptions:
+- Annual risk-free rate: 4% (assumed constant)
+- Trading days per year: 252
+- Confidence level for VaR and Expected Shortfall: 95%
+
+### Warnings:
+- Market data may be delayed or incomplete.
+- Past performance does not guarantee future results.
+- Risk-free rate is an assumed constant.
+
+These metrics provide a comprehensive view of Microsoft's risk and return profile over the past 2 years.",,True,True,1.0,True,True,31.272369625017745,2,1,2284,378,31.041487499984214,0.2283207919972483
+T06,financial_analysis,엔비디아의 최근 6개월간 최대 낙폭을 분석해 줘.,"[{'tool': 'analyze_stock', 'arguments': {'symbol': 'NVDA', 'period': '6mo'}}]","[{'tool': 'analyze_stock', 'arguments': {'confidence_level': 0.95, 'symbol': 'NVDA', 'period': '6mo', 'risk_free_rate': 0.04}, 'success': True, 'execution_time': 0.19102529098745435}]","엔비디아(NVDA)의 최근 6개월간 최대 낙폭(최대 손실)은 다음과 같습니다:
+
+- **최대 낙폭 (Maximum Drawdown):** -47.53%  
+- **분석 기간:** 2026년 5월 26일 ~ 2026년 11월 25일  
+- **데이터 출처:** Yahoo Finance via yfinance  
+- **분석 날짜:** 2026년 11월 26일  
+
+### 주요 설명:
+- **최대 낙폭**은 주가가 최고점에서 가장 낮은점까지 떨어진 비율을 나타냅니다. 이는 투자 위험을 평가하는 중요한 지표입니다.
+- 위험 요소로는 시장 데이터 지연, 과거 성과의 미래 성과 보장 불가, 무위험 금리 가정 등이 있습니다.
+
+### 추가 참고:
+- **연간 변동성 (Annualized Volatility):** 64.54%  
+- **샤프 비율 (Sharpe Ratio):** -0.86  
+- **총 수익률 (Total Return):** -30.35%  
+
+이 분석은 과거 데이터를 기반으로 하므로, 향후 시장 동향과는 다를 수 있습니다. 투자 결정 시 위험 관리와 다각적인 분석이 필요합니다.",,True,True,1.0,True,True,31.05870291701285,2,1,2290,385,30.865087459038477,0.19102529098745435
+T07,multi_asset,애플과 엔비디아의 최근 1년간 변동성을 비교해 줘.,"[{'tool': 'analyze_stock', 'arguments': {'symbol': 'AAPL', 'period': '1y'}}, {'tool': 'analyze_stock', 'arguments': {'symbol': 'NVDA', 'period': '1y'}}]","[{'tool': 'analyze_stock', 'arguments': {'confidence_level': 0.95, 'symbol': 'AAPL', 'period': '1y', 'risk_free_rate': 0.04}, 'success': True, 'execution_time': 0.19827941700350493}, {'tool': 'analyze_stock', 'arguments': {'period': '1y', 'risk_free_rate': 0.04, 'confidence_level': 0.95, 'symbol': 'NVDA'}, 'success': True, 'execution_time': 0.17317350002122112}]","애플 (AAPL)과 엔비디아 (NVDA)의 최근 1년간 변동성(annualized volatility)을 비교한 결과는 다음과 같습니다:
+
+### 1. **변동성 (Annualized Volatility)**
+- **애플 (AAPL):** 24.99%  
+- **엔비디아 (NVDA):** 52.37%  
+
+### 2. **결론**
+- **엔비디아 (NVDA)**의 변동성은 **애플 (AAPL)**에 비해 **약 2배 이상 높습니다**.
+- 이는 엔비디아가 더 높은 가격 변동성을 보이는 고위험 고수익 자산으로 분류될 수 있음을 시사합니다.
+- 변동성은 주가의 불확실성과 위험을 반영하므로, 투자 결정 시 위험 수용 능력과 수익 목표를 고려해야 합니다.
+
+### 3. **추가 참고**
+- **AAPL**은 상대적으로 안정적인 성과를 보였으며, **NVDA**는 최근 1년간 **-16.98%**의 총 수익률을 기록했습니다.
+- 변동성은 단순한 가격 변동을 나타내는 지표이므로, 투자 전략과 목표에 맞게 종합적으로 고려해야 합니다.
+
+### 4. **주의사항**
+- 과거 성과는 미래 결과를 보장하지 않습니다.
+- 변동성은 시장 조건, 경제 환경, 기업의 재무 상태 등에 따라 달라질 수 있습니다.",,True,True,1.0,True,True,41.444775375013705,2,2,3130,479,41.071012875007,0.37145291702472605
+T08,conceptual,Sharpe Ratio의 수학적 정의를 설명해 줘.,[],[],"Sharpe Ratio는 투자 포트폴리오의 **수익률과 위험(변동성)** 사이의 관계를 측정하는 지표로, 다음과 같은 수학적 정의를 가집니다:
+
+$$
+\text{Sharpe Ratio} = \frac{E(R_p - R_f)}{\sigma_p}
+$$
+
+### 수학적 정의 요소:
+1. **$E(R_p - R_f)$**: 포트폴리오의 **초과 수익률**(Expected Excess Return)  
+   - $R_p$: 포트폴리오의 기대 수익률  
+   - $R_f$: 무위험 자산의 수익률 (예: 국채 수익률)  
+   - 이 값은 포트폴리오가 무위험 자산 대비 얼마나 더 수익을 내는지를 나타냅니다.
+
+2. **$\sigma_p$**: 포트폴리오의 **표준 편차**(Standard Deviation)  
+   - 포트폴리오의 수익률의 변동성을 나타내며, 위험을 측정합니다.
+
+### 해석:
+- **Sharpe Ratio 값이 높을수록** 포트폴리오가 **위험 대비 더 높은 수익**을 내는 것으로 해석됩니다.
+- 일반적으로 **Sharpe Ratio가 1 이상**은 우수한 성과로 간주되며, **0.5 미만**은 낮은 성과로 간주됩니다.
+
+### 주의사항:
+- Sharpe Ratio는 **정규 분포를 가정**하는 경우에만 정확하게 작동합니다.
+- 비정규 분포의 경우, **Sortino Ratio**와 같은 다른 지표가 더 적절할 수 있습니다.",,True,True,,True,True,27.41292049997719,1,0,729,393,27.411846625007456,0.0
+T09,conceptual,Explain the difference between simple and log returns.,[],[],"Simple returns and log returns are two methods to measure the performance of an asset over time. Here's a breakdown of their differences:
+
+### 1. **Definition**
+- **Simple Return (Also known as Arithmetic Return):**  
+  $$
+  R_t = \frac{P_t - P_{t-1}}{P_{t-1}}
+  $$  
+  where $ P_t $ is the price at time $ t $, and $ P_{t-1} $ is the price at time $ t-1 $.
+
+- **Log Return (Also known as Continuously Compounded Return):**  
+  $$
+  r_t = \ln\left(\frac{P_t}{P_{t-1}}\right)
+  $$  
+  where $ \ln $ is the natural logarithm.
+
+### 2. **Properties**
+- **Simple Return:**  
+  - Easy to interpret and commonly used in finance.  
+  - Not additive over time.  
+  - Suitable for short-term analysis.
+
+- **Log Return:**  
+  - Additive over time, which makes it useful for modeling and forecasting.  
+  - More mathematically convenient for statistical analysis.  
+  - Often used in quantitative finance and risk management.
+
+### 3. **Relationship Between Simple and Log Returns**
+- The log return is approximately equal to the simple return for small changes in price.  
+- For larger changes, the two measures diverge.  
+- The relationship can be approximated as:  
+  $$
+  r_t \approx R_t - \frac{R_t^2}{2}
+  $$
+
+### 4. **Use Cases**
+- **Simple Return:**  
+  - Commonly used in portfolio management and performance evaluation.  
+  - Preferred for short-term analysis and when the focus is on percentage changes.
+
+- **Log Return:**  
+  - Used in models that require time-additivity, such as in stochastic processes and volatility modeling.  
+  - Preferred in risk management and for long-term analysis.
+
+### 5. **Summary**
+- **Simple Return** is intuitive and widely used for short-term performance measurement.  
+- **Log Return** is mathematically convenient and preferred for long-term analysis and modeling.  
+
+Both measures have their own advantages and are used depending on the context and the specific requirements of the analysis.",,True,True,,True,True,30.826073292002548,1,0,724,478,30.824846584000625,0.0
+T10,conceptual,Maximum Drawdown이 무엇인지 설명해 줘.,[],[],"**Maximum Drawdown (MDD)**는 투자 포트폴리오나 자산의 가치가 최고점에서 최저점까지 떨어진 **최대 감소 비율**을 나타내는 지표입니다. 이는 투자자에게 **최대 손실**을 경험할 수 있는 위험을 측정하는 중요한 지표로, 일반적으로 **% 단위**로 표현됩니다.
+
+### 정의:
+- **Maximum Drawdown (MDD)** = $\frac{\text{최고점 가치} - \text{최저점 가치}}{\text{최고점 가치}} \times 100\%$
+
+### 예시:
+- 만약 자산이 100만 원에서 80만 원으로 하락했다면, MDD는:
+  $$
+  \frac{100 - 80}{100} \times 100\% = 20\%
+  $$
+
+### 중요성:
+- **위험 관리**: MDD는 투자 자산이 얼마나 큰 손실을 경험할 수 있는지를 보여줍니다.
+- **투자 성과 평가**: MDD는 수익률과 병행하여 투자 성과를 평가하는 데 사용됩니다.
+- **포트폴리오 비교**: 서로 다른 자산이나 포트폴리오 간의 위험 수준을 비교하는 데 유용합니다.
+
+### 주의사항:
+- MDD는 **역사적 데이터** 기반의 지표이므로, **미래의 손실**을 보장하지 않습니다.
+- MDD는 단일 자산의 위험을 평가할 뿐, 포트폴리오 전체의 위험을 포괄적으로 설명하지 않습니다.
+
+### 결론:
+Maximum Drawdown은 투자자에게 **최대 손실**을 경험할 수 있는 위험을 측정하는 중요한 지표로, 투자 결정에 중요한 참고 자료가 됩니다.",,True,True,,True,True,27.219215584016638,1,0,725,451,27.217291249980917,0.0

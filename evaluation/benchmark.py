@@ -154,6 +154,10 @@ def run_test_case(agent, test_case):
 
         **evaluation,
 
+        "observations": agent.get_tool_results(),
+        "profile": metrics,
+        "cache": agent.registry.get_cache_metrics(),
+        "recoveries": [row.get("recovery", {}) for row in agent.get_tool_results()],
         "latency": latency,
         "llm_calls": metrics.get("llm_calls", 0),
         "tool_calls": metrics.get("tool_calls", 0),
@@ -247,6 +251,9 @@ def save_results(results, summary):
         "model": MODEL,
         "context_window": CONTEXT_WINDOW,
         "temperature": TEMPERATURE,
+        "method": {"dataset":"phase3-original-10", "repetitions":1, "stream":False,
+                   "cache":"empty at suite start; shared across cases", "model_start":"uncontrolled",
+                   "hardware":"Apple M3, 16 GB", "thinking":False},
         "summary": summary,
         "results": results
     }

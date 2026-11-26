@@ -1,8 +1,14 @@
 
+from concurrent.futures import Future
+from copy import deepcopy
+from threading import Lock
+from time import monotonic
+
 import inspect
 import math
 import re
 
+from src.recovery import RetryPolicy, classify
 from src.tools.market_data import get_latest_price
 from src.tools.financial_analysis import analyze_stock
 from src.tools.schemas import FINANCIAL_TOOL_SCHEMAS
@@ -10,7 +16,17 @@ from src.tools.schemas import FINANCIAL_TOOL_SCHEMAS
 
 class ToolRegistry:
 
-    def __init__(self):
+    def __init__(self, cache_ttl=60.0, clock=monotonic, retry=None):
+        self.retry = retry or RetryPolicy()
+        if not math.isfinite(cache_ttl) or cache_ttl < 0:
+            raise ValueError("Cache TTL must be finite and nonnegative.")
+        self.cache_ttl = cache_ttl
+        self._clock = clock
+        self._cache = {}
+        self._pending = {}
+        self._lock = Lock()
+        self._hits = self._misses = self._shared = 0
+
 
         self.tools = {
             "get_latest_price": get_latest_price,
@@ -96,6 +112,56 @@ class ToolRegistry:
 
         return validated
 
+    def clear_cache(self):
+        with self._lock:
+            self._cache.clear()
+            # In-flight readers may finish, but cannot repopulate this cache.
+            self._pending.clear()
+
+    def get_cache_metrics(self):
+        with self._lock:
+            total = self._hits + self._misses
+            return {"hits": self._hits, "misses": self._misses,
+                    "shared_calls": self._shared,
+                    "hit_ratio": self._hits / total if total else 0.0}
+
+    def _cached_call(self, name, arguments, metrics):
+        started = monotonic()
+        key = (name, tuple(sorted(arguments.items())))
+        with self._lock:
+            now = self._clock()
+            for expired in [k for k, (expiry, _) in self._cache.items() if expiry <= now]:
+                del self._cache[expired]
+            metrics["cache_lookup_seconds"] = monotonic() - started
+            if key in self._cache:
+                self._hits += 1
+                return deepcopy(self._cache[key][1])
+            pending = self._pending.get(key)
+            owner = pending is None
+            if owner:
+                self._misses += 1
+                pending = self._pending[key] = Future()
+            else:
+                self._shared += 1
+
+        if not owner:
+            return deepcopy(pending.result())
+        try:
+            data = self.retry.run(lambda: self.tools[name](**arguments), metrics)
+            snapshot = deepcopy(data)
+            with self._lock:
+                if self._pending.get(key) is pending and self.cache_ttl:
+                    self._cache[key] = (self._clock() + self.cache_ttl, snapshot)
+                pending.set_result(snapshot)
+            return data
+        except BaseException as error:
+            pending.set_exception(error)
+            raise
+        finally:
+            with self._lock:
+                if self._pending.get(key) is pending:
+                    del self._pending[key]
+
     def execute(
         self,
         name: str,
@@ -106,23 +172,25 @@ class ToolRegistry:
             return {
                 "success": False,
                 "tool": name,
+                "error_code": "unsupported_tool",
                 "error": "Unknown tool."
             }
 
+        metrics = {"retries": 0, "retry_delay": 0.0}
+        validated = None
         try:
             validated = self.validate_arguments(
                 name,
                 arguments
             )
 
-            function = self.tools[name]
-
-            result = function(**validated)
+            result = self._cached_call(name, validated, metrics)
 
             return {
                 "success": True,
                 "tool": name,
                 "arguments": validated,
+                "recovery": metrics,
                 "data": result
             }
 
@@ -130,6 +198,10 @@ class ToolRegistry:
             return {
                 "success": False,
                 "tool": name,
+                "arguments": validated or {},
+                "error_code": (classify(error) if validated is not None else
+                               "invalid_symbol" if "symbol" in str(error).lower() else "invalid_arguments"),
+                "recovery": metrics,
                 "error_type": type(error).__name__,
                 "error": str(error)
             }

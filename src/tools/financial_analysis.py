@@ -96,6 +96,7 @@ def analyze_stock(
     # 5. Structured report
     report = {
         "symbol": symbol,
+        "currency": raw_data.attrs.get("currency"),
 
         "data_source": "Yahoo Finance via yfinance",
 
